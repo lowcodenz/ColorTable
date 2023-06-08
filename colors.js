@@ -19,7 +19,7 @@ function generateColors(color){
   function generateShades(shade){
     var cssVariable = 'cl-' + color + '-'+ shade;
 
-    tableStr = tableStr + '<div class="pantone-item"><div class="pantone-color" style="background-color: var(--' + cssVariable + ')"</div>' + '<span class="pantone-text">' + cssVariable +'</span>' + '</div></div>';
+    tableStr = tableStr + '<div class="pantone-item"><div class="pantone-color" style="background-color: var(--' + cssVariable + ')"> </div>' + '<span class="pantone-text">' + cssVariable +'</span>' + '</div>';
 
   }
 
