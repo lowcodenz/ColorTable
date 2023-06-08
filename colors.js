@@ -1,6 +1,6 @@
 // all the variables here
 
-const shadeValue = ['900', '700', '500', '', '300', '100', '90', '70', '50', '30', '10'];
+const shadeValue = ['','900', '700', '500', '300', '100', '90', '70', '50', '30', '10'];
 const color = ['primary', 'secondary','accent','success','warning','danger','clickable','active','info','inverse','default','text', 'header'];
 var tableStr = '<div class="pantone-wrap">';
 
@@ -17,9 +17,16 @@ function generateColors(color){
   // for each color add a table item
   shadeValue.forEach(generateShades);
   function generateShades(shade){
-    var cssVariable = 'cl-' + color + '-'+ shade;
+    if(shade == ''){
+      var cssVariable = 'cl-' + color
+    } else{
+      var cssVariable = 'cl-' + color + '-'+ shade;
+    }
 
-    tableStr = tableStr + '<div class="pantone-item"><div class="pantone-color" style="background-color: var(--' + cssVariable + ')"> </div>' + '<span class="pantone-text">' + cssVariable +'</span>' + '</div>';
+    var computedStyle = getComputedStyle(document.documentElement).getPropertyValue(cssVariable);
+    console.log(cssVariable);
+  
+    tableStr = tableStr + '<div class="pantone-item"><div class="pantone-color" style="background-color: var(--' + cssVariable + ')"> </div>' + '<span class="pantone-value">' + computedStyle + '</span>' + '<span class="pantone-text">' + cssVariable +'</span>' + '</div>';
 
   }
 
