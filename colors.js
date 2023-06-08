@@ -1,25 +1,39 @@
 // all the variables here
 
-//an array here of all the values
-const shadevalue = [900, 700, 500, '', 300, 100, 90, 70, 50, 30, 10];
-
-// another array of all the semantic elements
+const shadeValue = ['900', '700', '500', '', '300', '100', '90', '70', '50', '30', '10'];
 const color = ['primary', 'secondary','accent','success','warning','danger','clickable','active','info','inverse','default','text', 'header'];
+var tableStr = '<div class="pantone-wrap">';
+
+//
 
 
 
-// what the html should look like
 
-<table>
-  <tr>
-    <th>color</th>                  //for each shadevalue make on of these
-    <th></th>                       //for each shadevalue make on of these
-  </tr>
-  <tr>                              //for each color make on of these
-    <td>color name</td>                       //for each shadevalue make on of these
-    <td></td>                       //for each shadevalue make on of these
-  </tr>
+color.forEach(generateColors);
+function generateColors(color){
+  tableStr = tableStr + '<div class="row">';
+  //tableStr = tableStr + '<td>' + color + '</td>';
 
-</table>
+  // for each color add a table item
+  shadeValue.forEach(generateShades);
+  function generateShades(shade){
+    var cssVariable = 'cl-' + color + '-'+ shade;
 
+    tableStr = tableStr + '<div class="pantone-item">  <div class="pantone-color" style="background-color: var(--' + cssVariable + ')"</div>' + '<span class="pantone-text">' + cssVariable +'</span>' + '</div>';
+
+  }
+
+  tableStr = tableStr + '</div>';
+}
+
+tableStr = tableStr + '</div>';
+
+// var nav = document.getElementById("table");
+// table.innerHTML = tableStr;
+
+var targetElements = document.getElementsByClassName('table');
+if (targetElements.length > 0) {
+  var targetElement = targetElements[0];
+  targetElement.innerHTML = tableStr;
+}
 
