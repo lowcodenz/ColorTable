@@ -23,8 +23,8 @@ function generateColors(color){
       var cssVariable = 'cl-' + color + '-'+ shade;
     }
 
-    var computedStyle = getComputedStyle(document.documentElement).getPropertyValue(cssVariable);
-    console.log(cssVariable);
+    var computedStyle = getComputedStyle(document.documentElement).getPropertyValue('--' + cssVariable);
+    // console.log(cssVariable);
   
     tableStr = tableStr + '<div class="pantone-item"><div class="pantone-color" style="background-color: var(--' + cssVariable + ')"> </div>' + '<span class="pantone-value">' + computedStyle + '</span>' + '<span class="pantone-text">' + cssVariable +'</span>' + '</div>';
 
