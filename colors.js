@@ -1,6 +1,6 @@
 // all the variables here
 
-const shadeValue = ['','900', '700', '500', '300', '100', '90', '70', '50', '30', '10'];
+const shadeValue = ['900', '700', '500', '300', '100', '90', '70', '50', '30', '10'];
 const color = ['primary', 'secondary','accent','success','warning','danger','clickable','active','info','inverse','default','text', 'header'];
 var tableStr = '<div class="pantone-wrap">';
 
